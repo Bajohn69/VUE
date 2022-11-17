@@ -1,8 +1,9 @@
 <script setup>
 import { ref } from "vue";
 
-const msg = ref("");
+const msg = ref("Vue");
 // 快捷鍵 ref + tab
+// ref 預設長怎樣
 </script>
 
 <template>

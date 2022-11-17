@@ -1,39 +1,26 @@
-<script setup></script>
+<script setup>
+const props = defineProps({
+  todos: Array, // todos 這邊要跟父組件同名 後面放類型(array, string...)
+});
+</script>
 
 <template>
   <ul class="list-group mt-3">
-    <li v-for="(todo, i) in todos" class="list-group-item" :key="i">
-      <div v-if="editedTodo !== todo" class="d-flex justify-content-between">
+    <li
+      v-for="(todo, index) in props.todos"
+      :key="index"
+      class="list-group-item"
+    >
+      <!-- v-for="(todo, index) in props.todos" 串接上方的東東 -->
+      <!-- :key="index" 給他唯一值 -->
+      <div class="d-flex justify-content-between">
         <div>
-          <input
-            v-model="todo.completed"
-            class="form-check-input me-3"
-            type="checkbox"
-          />
-          <label
-            @dblclick="editTodo(todo)"
-            :class="{ completed: todo.completed }"
-            class="form-check-label"
-            >{{ i }} - {{ todo.title }}</label
-          >
-          <!-- class 一定要放 key: value 放多個一定要大括號， true/false 開關 class {class1: true, class2:false} -->
+          <input class="form-check-input me-3" type="checkbox" />
+          <label class="form-check-label">{{ todo.title }}</label>
         </div>
-        <button
-          @click="removeTodo(i)"
-          class="badge bg-danger rounded-pill border-0"
-        >
-          X
-        </button>
+        <button class="badge bg-danger rounded-pill border-0">X</button>
       </div>
-      <input
-        v-else
-        v-model="todo.title"
-        @blur="doneEdit(todo)"
-        @keyup.enter="doneEdit(todo)"
-        @keyup.escape="cancelEdit(todo)"
-        type="text"
-        class="form-control"
-      />
+      <input type="text" class="form-control" hidden />
     </li>
   </ul>
 </template>

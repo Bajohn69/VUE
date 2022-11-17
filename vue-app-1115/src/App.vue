@@ -9,9 +9,7 @@ import Nav from "./components/Nav.vue";
 <template>
   <Nav></Nav>
   <div class="row">
-    <div class="col-3">
-      <HelloVue></HelloVue>
-    </div>
+    <div class="col-3"></div>
     <div class="col-6">
       <router-view></router-view>
     </div>

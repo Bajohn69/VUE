@@ -28,13 +28,18 @@ const addTodo = () => {
   }
   // 若使用者沒輸入就按 enter 就 return
   // 在用 ref 所宣告出來變數，要取出變數的值要加入 .value 才能讀到他的值
+  let id = 1;
+  if (todos.data.length > 0) {
+    id = todos.data[todos.data.length - 1].id + 1;
+  }
   todos.data.push({
-    id: todos.data.length + 1,
+    id: id, //todos.data.length + 1,
     title: newTodo.value,
     completed: false,
   });
   newTodo.value = "";
   // 清空
+  // console.log(id);
 };
 
 // 從子組件傳遞要刪除的 todo 到父組件

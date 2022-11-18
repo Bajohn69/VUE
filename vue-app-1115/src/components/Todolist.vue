@@ -54,7 +54,7 @@ const cancelEdit = (todo) => {
             @dblclick="editTodo(todo)"
             :class="{ completed: todo.completed }"
             class="form-check-label"
-            >{{ todo.title }}</label
+            >{{ todo.id }} - {{ todo.title }}</label
           >
         </div>
         <button

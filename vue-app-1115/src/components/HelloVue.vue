@@ -7,12 +7,14 @@ const msg = ref("Vue");
 </script>
 
 <template>
-  <input type="text" v-model="msg" />
-  <h3>Hello, {{ msg }}!</h3>
+  <input class="mt-5" type="text" v-model="msg" />
+  <h1>Hello, {{ msg }}!</h1>
 </template>
 
 <style scoped>
-h3 {
+h1 {
   color: lightcoral;
+}
+input {
 }
 </style>
